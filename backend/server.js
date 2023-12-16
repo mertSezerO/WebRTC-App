@@ -1,11 +1,19 @@
 const express = require('express')
 const app = express()
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
 
-require("dotenv").config();
+require('dotenv').config();
 
 const roomRouter = require('./routes/room')
 
 app.use(roomRouter)
-app.listen(process.env.PORT,() => {
+server.listen(process.env.PORT,() => {
     console.log(`Server is running on port ${process.env.PORT}`)
+})
+
+const { handleSocketActions } = require('./utils/socket-handler')
+
+io.on('connection', socket => {
+    handleSocketActions(io, socket)
 })
