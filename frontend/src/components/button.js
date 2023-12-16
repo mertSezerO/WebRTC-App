@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Button(name, redirectPath) {
+export default function Button({name, redirectPath}) {
     const navigate = useNavigate()
 
     function onClick() {
