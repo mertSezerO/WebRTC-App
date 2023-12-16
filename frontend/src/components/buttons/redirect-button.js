@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Button({name, redirectPath}) {
+export default function RedirectButton({name, redirectPath, onClickModifier}) {
     const navigate = useNavigate()
 
     function onClick() {
+        if (onClickModifier){
+            const room = onClickModifier()
+            redirectPath += "/" + room.id
+        }
         navigate(redirectPath)
     }
 
