@@ -2,7 +2,7 @@
   --background-colour: #f0e5e5; /* Light rose */
   --main-colour: #3d5a80; /* Dark steel blue */
   --hover-colour: #d8b5b5;
-  /* --font-colour: #f7f0d1; */
+  --focus-colour: #f7f0d1;
 }
 
 
@@ -47,14 +47,46 @@ button:hover {
   height: 100vh;
 }
 
-.input-container input {
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.input input {
   background-color: var(--hover-colour);
   color: var(--main-colour);
   margin: 10px;
   padding: 10px;
-  border: 1px solid var(--main-colour);
+  border: 1px solid var(--background-colour);
   border-radius: 5px;
-  width: 300px;
+  width: 250px;
+}
+
+.input select {
+  background-color: var(--hover-colour);
+  color: var(--main-colour);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid var(--background-colour);
+  border-radius: 5px;
+  width: 270px;
+}
+
+.input label {
+  color: var(--main-colour);
+}
+
+.input input:focus {
+  background-color: var(--focus-colour);
+  border-color: var(--main-colour);
+}
+
+.input select:focus {
+  background-color: var(--focus-colour);
+  border-color: var(--main-colour);
 }
 
 .input-container button {

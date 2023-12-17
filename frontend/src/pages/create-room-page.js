@@ -1,5 +1,6 @@
-import Input from "../components/input"
+import Input from "../components/inputs/input"
 import RedirectButton from "../components/buttons/redirect-button"
+import InputPanel from "../components/inputs/input-panel";
 
 export default function CreateRoomPage() {
     let name;
@@ -37,9 +38,18 @@ export default function CreateRoomPage() {
     return (
         <div className="input-container">
             <h1>Customize & Create Your Room</h1>
-            <Input value={name} onChange={changeNameInput} placeholder={"Room name"}/>
-            <Input value={capacity} onChange={changeCapacityInput} placeholder={"eg. 16"}/>
-            <Input value={privacyType} onChange={changePrivacyInput} placeholder={"Public or Private"}/>
+            <div className="input">
+                <label htmlFor="name">Room Name</label>
+                <Input value={name} onChange={changeNameInput} placeholder={"eg. Movie Night"}/>
+            </div>
+            <div className="input">
+                <label htmlFor="privacyType">Capacity</label>
+                <Input value={capacity} onChange={changeCapacityInput} placeholder={"eg. 16"}/>
+            </div>
+            <div className="input">
+                <label htmlFor="privacyType">Privacy Type</label>
+                <InputPanel value={privacyType} options={["Public", "Private"]} onChange={changePrivacyInput} placeholder={"Select a Privacy Type"}/>
+            </div>
             <RedirectButton name={"Create"} redirectPath={"/rooms"} onClickModifier={createRoom}/> 
         </div>
     )
