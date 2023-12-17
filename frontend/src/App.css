@@ -2,6 +2,7 @@
   --background-colour: #f0e5e5; /* Light rose */
   --main-colour: #3d5a80; /* Dark steel blue */
   --hover-colour: #d8b5b5;
+  /* --font-colour: #f7f0d1; */
 }
 
 
@@ -38,7 +39,6 @@ button:hover {
   background-color: var( --hover-colour);
 }
 
-
 .input-container {
   display: flex;
   flex-direction: column;
@@ -48,6 +48,8 @@ button:hover {
 }
 
 .input-container input {
+  background-color: var(--hover-colour);
+  color: var(--main-colour);
   margin: 10px;
   padding: 10px;
   border: 1px solid var(--main-colour);
@@ -66,5 +68,28 @@ button:hover {
 }
 
 .input-container button:hover {
+  background-color: var(--hover-colour);
+}
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: var(--background-colour);
+  padding: 20px;
+}
+
+.item {
+  background-color: var(--hover-colour);
+  border: 1px solid var(--main-colour);
+  color: var(--main-colour);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.item:hover {
   background-color: var(--hover-colour);
 }

@@ -34,7 +34,7 @@ class RoomManager{
     }
 
     getRooms() {
-        return rooms
+        return this.rooms
     }
 }
 
