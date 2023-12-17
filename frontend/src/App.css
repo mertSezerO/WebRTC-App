@@ -2,7 +2,7 @@
   --background-colour: #f0e5e5; /* Light rose */
   --main-colour: #3d5a80; /* Dark steel blue */
   --hover-colour: #d8b5b5;
-  --focus-colour: #f7f0d1;
+  --focus-colour: #f2e9de;
 }
 
 
@@ -85,7 +85,6 @@ button:hover {
 }
 
 .input select:focus {
-  background-color: var(--focus-colour);
   border-color: var(--main-colour);
 }
 
@@ -113,7 +112,7 @@ button:hover {
 
 .item {
   background-color: var(--hover-colour);
-  border: 1px solid var(--main-colour);
+  border: 1px solid var(--background-colour);
   color: var(--main-colour);
   border-radius: 5px;
   margin: 10px;
@@ -123,5 +122,6 @@ button:hover {
 }
 
 .item:hover {
-  background-color: var(--hover-colour);
+  background-color: var(--focus-colour);
+  border-color: var(--main-colour);
 }
