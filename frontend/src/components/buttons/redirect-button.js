@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 export default function RedirectButton({name, redirectPath, onClickModifier}) {
     const navigate = useNavigate()
 
-    function onClick() {
+    const onClick = async () => {
         if (onClickModifier){
-            const room = onClickModifier()
+            const room = await onClickModifier()
             redirectPath += "/" + room.id
         }
         navigate(redirectPath)

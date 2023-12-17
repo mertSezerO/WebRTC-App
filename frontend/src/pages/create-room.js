@@ -7,7 +7,7 @@ export default function CreateRoomPage() {
     let privacyType;
 
     const createRoom = async () => {
-        const response = await fetch("http://localhost:5000/rooms", {
+        const response = await fetch("http://localhost:3000/rooms", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export default function CreateRoomPage() {
                 privacyType: privacyType
             })
         })
-        const room = await response.json();
+        const { room } = await response.json();
         return room
     }
 

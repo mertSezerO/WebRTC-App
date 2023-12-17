@@ -6,7 +6,10 @@ exports.getRooms = (req, res, next)  => {
 };
 
 exports.createRoom = (req, res, next)  => {
-    const room = Room(req.body)
+    const room = new Room(req.body.name, req.body.capacity, req.body.privacyType)
     roomManager.addRoom(room)
-    res.status(201).json({ message: "Room successfully created"})
+    res.status(201).json({
+        room: room, 
+        message: "Room successfully created"
+    })
 }

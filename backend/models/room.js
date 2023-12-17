@@ -1,9 +1,12 @@
+const { v4: uuidv4 } = require('uuid');
+
 class Room {
 
     constructor(name, capacity, privacyType) {
         this.name = name
         this.capacity = capacity
         this.privacyType = privacyType
+        this.id = uuidv4();
         this.users = [ ]
     }
 
