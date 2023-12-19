@@ -50,7 +50,7 @@ export default function CreateRoomPage() {
                 <label htmlFor="privacyType">Privacy Type</label>
                 <InputPanel value={privacyType} options={["Public", "Private"]} onChange={changePrivacyInput} placeholder={"Select a Privacy Type"}/>
             </div>
-            <RedirectButton name={"Create"} redirectPath={"/rooms"} onClickModifier={createRoom}/> 
+            <RedirectButton name={"Create"} redirectPath={"/rooms"} onClickModifier={createRoom}/>
         </div>
     )
 }
