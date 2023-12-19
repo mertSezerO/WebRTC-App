@@ -17,6 +17,14 @@ class Room {
     addUser(user) {
         this.users.push(user)
     }
+
+    getUsers() {
+        return this.users
+    }
+
+    deleteUsers(user) {
+        delete this.users[user]
+    }
 }
 
 class RoomManager{
@@ -35,6 +43,14 @@ class RoomManager{
 
     getRooms() {
         return this.rooms
+    }
+
+    getRoom(roomId) {
+        return this.rooms.filter((room) => room.id === roomId)[0]
+    }
+
+    deleteRoom(roomId) {
+        this.rooms.filter((room) => room.id !== roomId) 
     }
 }
 

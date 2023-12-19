@@ -17,6 +17,8 @@ export default function RoomPage() {
     };
 
     initWebRTC();
+
+    socket.emit('join-room', id);
   }, []);
 
   const handleICECandidateEvent = (event) => {

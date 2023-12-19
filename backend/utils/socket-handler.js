@@ -1,14 +1,11 @@
+const { roomManager } = require('../models/room');
+
 function handleSocketActions(io, socket) {
     console.log(`User ${socket.id} connected`);
 
   socket.on('join-room', (roomID) => {
     socket.join(roomID);
-
-    if (!roomMap[roomID]) {
-      roomMap[roomID] = new Room('Room Name', 10, 'private'); 
-    }
-
-    roomMap[roomID].addUser(socket.id);
+    roomManager.getRoom(roomID).addUser(socket.id);
   });
 
   socket.on('offer', (offer, targetSocketId, roomID) => {
@@ -27,16 +24,14 @@ function handleSocketActions(io, socket) {
     console.log(`User ${socket.id} disconnected`);
 
     const roomID = Object.keys(roomMap).find(
-      (roomId) => roomMap[roomId].users.includes(socket.id)
+      (roomId) => roomManager.getRoom(roomId).users.includes(socket.id)
     );
 
     if (roomID) {
-      roomMap[roomID].users = roomMap[roomID].users.filter(
-        (userId) => userId !== socket.id
-      );
+        roomManager.getRoom(roomID).deleteUser(socket.id)
 
-      if (roomMap[roomID].users.length === 0) {
-        delete roomMap[roomID];
+      if (roomManager.getRoom(roomID).getUsers().length === 0) {
+        roomManager.deleteRoom(roomID)
       }
 
       socket.leave(roomID);
