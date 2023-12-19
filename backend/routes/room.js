@@ -6,4 +6,6 @@ Router.get('/rooms', roomController.getRooms)
 
 Router.post('/rooms', roomController.createRoom)
 
+Router.get('/rooms/:roomId', roomController.getRoom)
+
 module.exports = Router
