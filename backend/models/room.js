@@ -22,7 +22,7 @@ class Room {
         return this.users
     }
 
-    deleteUsers(user) {
+    deleteUser(user) {
         delete this.users[user]
     }
 }
@@ -46,7 +46,7 @@ class RoomManager{
     }
 
     getRoom(roomId) {
-        return this.rooms.filter((room) => room.id === roomId)[0]
+        return this.rooms.find((room) => room.id === roomId)
     }
 
     deleteRoom(roomId) {

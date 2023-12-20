@@ -6,7 +6,9 @@ export default function RedirectButton({name, redirectPath, onClickModifier}) {
     const onClick = async () => {
         if (onClickModifier){
             const room = await onClickModifier()
-            redirectPath += "/" + room.id
+            if(room) {
+                redirectPath += "/" + room.id
+            }
         }
         navigate(redirectPath)
     }

@@ -20,21 +20,21 @@ function handleSocketActions(io, socket) {
     io.to(targetSocketId).emit('ice-candidate', candidate);
   });
 
-  socket.on('disconnect', () => {
+  socket.on('leave-room', () => {
     console.log(`User ${socket.id} disconnected`);
 
-    const roomID = Object.keys(roomMap).find(
-      (roomId) => roomManager.getRoom(roomId).users.includes(socket.id)
+    const roomInc = roomManager.getRooms().find(
+      (room) => room.users.includes(socket.id)
     );
 
-    if (roomID) {
-        roomManager.getRoom(roomID).deleteUser(socket.id)
+    if (roomInc) {
+      roomInc.deleteUser(socket.id)
 
-      if (roomManager.getRoom(roomID).getUsers().length === 0) {
-        roomManager.deleteRoom(roomID)
+      if (roomInc.getUsers().length === 0) {
+        roomManager.deleteRoom(roomInc.id)
       }
 
-      socket.leave(roomID);
+      socket.leave(roomInc.id);
     }
   });
 }

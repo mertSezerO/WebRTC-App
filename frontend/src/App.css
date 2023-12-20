@@ -128,21 +128,28 @@ button:hover {
 
 .room-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.shared-container {
-  display: block;
-}
-
-.shared-item {
-  background-color: var(--hover-colour);
+  padding: 20px;
+  background-color: var(--background-colour);
 }
 
 .button-container {
-  background-color: var(--focus-colour);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.shared-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.shared-item {
+  border: 1px solid var(--main-colour);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--hover-colour);
 }
