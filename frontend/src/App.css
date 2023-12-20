@@ -125,3 +125,24 @@ button:hover {
   background-color: var(--focus-colour);
   border-color: var(--main-colour);
 }
+
+.room-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shared-container {
+  display: block;
+}
+
+.shared-item {
+  background-color: var(--hover-colour);
+}
+
+.button-container {
+  background-color: var(--focus-colour);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
